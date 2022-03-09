@@ -23,3 +23,25 @@ for (const key of map1.keys()) {
       }
   }
 };
+
+//Write a JavaScript program to find the most frequent item of an array. Go to the editor
+//Sample array : var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+//Sample Output : a ( 5 times )**
+
+var a=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]
+var max=0;
+var most;
+for (let i=0;i<a.length;i++){
+    let count=1;
+    for (let j=i+1; j<a.length;j++){
+        if (a[j]==a[i]){
+            count++;
+            a[j]='';
+        }
+    }
+    if (a[i]!=''){
+        if (count>max) {max=count; most=a[i];}
+    }
+}
+console.log (most);
+console.log (max);
