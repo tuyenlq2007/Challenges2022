@@ -20,3 +20,17 @@ for (j = 0; j < subarr.length; j++) {
 if (j==subarr.length) console.log (i);
 i++;
 }
+
+//find index of sub array
+a = [4,2,1,2,1,1,2,4,3,4];
+b=[4,3]
+let i=0;
+while (i<a.length-b.length){
+let search=a.slice(i,i+b.length);
+let is_same = (b.length == search.length) && b.every(function(element, index) {
+    return element === search[index]; 
+});
+console.log(is_same?i:"");
+i++;
+}
+
