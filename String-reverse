@@ -1,0 +1,5 @@
+//reverse words
+a="nha khoa"
+b=(a.split('').reverse()).join("")
+console.log(b)
+
