@@ -1,3 +1,4 @@
+//option1
 var allPal=[];
 function getPal(str){
     let allPal=[];
@@ -18,3 +19,12 @@ function isPal(str,l,r){
 
 console.log(getPal("abbaergttgre"));
 
+//option2
+a="abcba".split("")
+function isPal(a){
+for (let i=0;i<a.length/2;i++){
+    if (a[i]!=a[a.length-1-i]) return false
+}
+return true
+}
+console.log(isPal(a))
