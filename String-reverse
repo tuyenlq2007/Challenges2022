@@ -1,3 +1,12 @@
+//reverse string
+//option2 recursive
+a1="aabb".split('')
+function reverse(a){
+ console.log(a.pop());
+ if(a.length>0) reverse(a);
+}
+reverse(a1);
+
 //reverse words
 a="nha khoa"
 b=(a.split('').reverse()).join("")
