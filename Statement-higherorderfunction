@@ -1,4 +1,4 @@
-//function as variable 
+//Function Expressions
 const sum=(sum,num)=>{
     return sum+num;
 }
