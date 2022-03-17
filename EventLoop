@@ -1,3 +1,47 @@
-The Event Loop
-This section will explain how JavaScript handles asynchronous code with the event loop.
+//1.)The Event Loop
+//This section will explain how JavaScript handles asynchronous code with the event loop.
 
+// Define three example functions, but one of them contains asynchronous code
+function first() {
+  console.log(1)
+}
+
+function second() {
+  setTimeout(() => {
+    console.log(2)
+  }, 0)
+}
+
+function third() {
+  console.log(3)
+}
+
+//setTimeout takes two arguments: the function it will run asynchronously, and the amount of time it will wait before calling that function.
+first()
+second()
+third()
+
+
+//2.)Callback
+ The task is to get the third function to always delay execution until after the asynchronous action in the second function has completed.
+// Define three functions
+function first() {
+  console.log(1)
+}
+
+function second(callback) {
+  setTimeout(() => {
+    console.log(2)
+
+    // Execute the callback function
+    callback()
+  }, 0)
+}
+
+function third() {
+  console.log(3)
+}
+
+
+first()
+second(third)
