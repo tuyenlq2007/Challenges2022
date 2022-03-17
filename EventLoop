@@ -1,0 +1,3 @@
+The Event Loop
+This section will explain how JavaScript handles asynchronous code with the event loop.
+
