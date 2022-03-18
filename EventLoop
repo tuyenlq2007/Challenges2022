@@ -45,3 +45,18 @@ function third() {
 
 first()
 second(third)
+
+
+Promises
+A promise represents the completion of an asynchronous function. It is an object that might return a value in the future
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('Resolving an asynchronous request!'), 2000)
+})
+
+// Log the result
+promise.then((response) => {
+  console.log(response)
+})
+
+Using the then syntax ensures that the response will be logged only when the setTimeout operation is completed after 2000 milliseconds. All this is done without nesting callbacks.
+Promises have a method called then that will run after a promise reaches resolve in the code. then will return the promise’s value as a parameter.
