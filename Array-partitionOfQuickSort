@@ -1,25 +1,28 @@
 //Partition in QuickSelect, QuickSort
+//Parton in QuickSelect, QuickSort
 a=[1,2,6,4,7,8,3,4];
-h=a.length-1
-pivot=a[h]
-//console.log(pivot)
-r=h-1
-l=0
+function parttion(a,l,h){
+let r=h-1;
+let pivot=a[h];
+let index=0;
 while (l<=r){
-  console.log(l)
+  console.log(l);
   if (a[l]>pivot) {
-    temp=a[r]
-    a[r]=a[l]
-    a[l]=temp
+    temp=a[r];
+    a[r]=a[l];
+    a[l]=temp;
     r--;
   }else l++
-  console.log(a)
+  console.log(a);
 }
-//console.log(a)
 index=l;
 temp=a[index];
 a[index]=pivot;
-a[h]=temp
+a[h]=temp;
+return index;
+}
+
+let index= parttion(a,0,7);
 console.log("final results")
 console.log (a);
 console.log (index)
