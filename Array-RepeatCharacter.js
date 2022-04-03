@@ -1,4 +1,9 @@
 //option 1
+const a = [1, 2, 3, 4,1];
+s=new Set(a)
+s.forEach(e=>console.log(a.filter(f=>f==e)))
+
+//option 1
 const map1 = new Map();
 const array1=['a','b','c','a'];
 array1.forEach(char1=>map1.get(char1)==null?map1.set(char1,1):map1.set(char1,map1.get(char1)+1));
