@@ -54,18 +54,19 @@ A promise starts in the pending state and ends in either fulfilled state or reje
 Use then() method to schedule a callback to be executed when the promise is fulfilled, and catch() method to schedule a callback to be invoked when the promise is rejected.
 Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
 
-function getUsers() {
+function getUserDate() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('john');
+        const userDate = Date.now();
+        resolve(userDate);
     }, 1000);
   });
 }
 
-const promise = getUsers();
+const promise = getUserDate();
 
-promise.then((users) => {
-  console.log(users);
+promise.then((date) => {
+  console.log(date);
 });
 
 /**/
