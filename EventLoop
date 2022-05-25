@@ -47,7 +47,28 @@ first()
 second(third)
 
 
-Promises
+/*Promises*/
+Summary
+A promise is an object that encapsulates the result of an asynchronous operation.
+A promise starts in the pending state and ends in either fulfilled state or rejected state.
+Use then() method to schedule a callback to be executed when the promise is fulfilled, and catch() method to schedule a callback to be invoked when the promise is rejected.
+Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
+
+function getUsers() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('john');
+    }, 1000);
+  });
+}
+
+const promise = getUsers();
+
+promise.then((users) => {
+  console.log(users);
+});
+
+/**/
 A promise represents the completion of an asynchronous function. It is an object that might return a value in the future
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => resolve('Resolving an asynchronous request!'), 2000)
