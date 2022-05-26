@@ -1,3 +1,10 @@
+/*using every to compare every element
+using string to array
+using reverse */
+arr1="aaa".split("")
+arr2=arr1.reverse()
+console.log(arr1.every((e,index,arr2)=>e=arr2[index]))
+
 //option1
 var allPal=[];
 function getPal(str){
