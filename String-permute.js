@@ -1,17 +1,17 @@
+var per=[];
 function permute(str, l, r)
 {
-
     if (l == r){
-            document.write(str+"<br>");
+            per.push(str);
             return;
     }
 
         
-            for (let i = l; i < r; i++)
-            {
-                newstr = swap(str, l, i);
-                permute(newstr, l + 1, r);
-            }
+    for (let i = l; i < r; i++)
+    {
+        let newstr = swap(str, l, i);
+        permute(newstr, l + 1, r);
+    }
 
         
 }
@@ -28,7 +28,13 @@ charArray[j] = temp;
 return (charArray).join("");
 }
  
+function main() {
+    let str = "ABC";
+    let n = str.length;
+    permute(str, 0, n);
+    console.log(per);
+}
 
-let str = "ABC";
-let n = str.length;
-permute(str, 0, n);
+if (require.main === module) {
+    main();
+}
