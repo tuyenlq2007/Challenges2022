@@ -1,18 +1,20 @@
 /*Array*/
 const arr=[0,1,2,3,4,5,6,7,8,9,10];
 
+/*Array to string*/
 console.log("Array to String");
 var string_from_array = arr.join('');
 console.log(string_from_array);//012345678910
 
+/*String to array*/
 console.log("String to Array");
 var array_from_string=string_from_array.split('');
 console.log(array_from_string);//['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '0']
 
+/*String to Array of Number*/
 console.log("String to Array Number");
 var array_number_from_string=array_from_string.map(i=>Number(i));
 console.log(array_number_from_string);//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 0]
-
 
 /*Array Method .forEach()
 The .forEach() method executes a callback function on each of the elements in an array in order.
@@ -40,6 +42,55 @@ for (const value of iterable) {
 // 10
 // 20
 // 30
+
+
+/**Array to Map */
+const array3 = [
+  {key: 'name', value: 'Tom'},
+  {key: 'country', value: 'Chile'},
+];
+
+const map2 = new Map(
+  array3.map(object => {
+    return [object.key, object.value];
+  }),
+);
+
+console.log("Array to Map");
+console.log(map2);
+
+
+/**Map to Array */
+const map4 = new Map();
+map4.set('name', 'John');
+map4.set('age', 30);
+
+console.log("Map to Array of values");
+const values = Array.from(map4.values());
+console.log(values); // 👉️ ['John', 30]
+console.log(values.length); // 👉️ 2
+
+console.log("Map to Array of keys");
+const keys = Array.from(map4.keys()); // 👉️ ['name', 'age']
+console.log(keys);
+console.log(keys.length); 
+
+
+/**Array to Set */
+console.log("Array to Set");
+var array5 = [55, 44, 65];
+var set5 = new Set(array5);
+console.log(set5.size === array5.length);
+console.log(set5.has(65));
+
+/**Set to Array */
+console.log("Set to Array");
+var mySet5=new Set();
+mySet5.add(1);
+mySet5.add(2);
+var myArr5 = [...mySet5];
+console.log(myArr5);
+
 
 /*Array Method .filter()
 The .filter() method executes a callback function on each element in an array. The callback function for each of the elements must return either true or false. The returned array is a new array with any elements for which the callback function returns true.
