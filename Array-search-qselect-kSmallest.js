@@ -1,4 +1,4 @@
-//Parton in QuickSelect, QuickSort
+//Partion in QuickSelect, QuickSort
 a=[1,2,6,4,7,8,3,4];
 
 function parttion(a,l,h){
