@@ -1,41 +1,41 @@
-/*Array*/
+/*1. Array*/
 const arr=[0,1,2,3,4,5,6,7,8,9,10];
 
-/*Array to string*/
-console.log("Array to String");
+/*2. Array to string*/
+console.log("2. Array to String");
 var string_from_array = arr.join('');
 console.log(string_from_array);//012345678910
 
-/*String to array*/
-console.log("String to Array");
+/*3. String to array*/
+console.log("3. String to Array");
 var array_from_string=string_from_array.split('');
 console.log(array_from_string);//['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '1', '0']
 
-/*String to Array of Number*/
-console.log("String to Array Number");
+/*4. String to Array of Number*/
+console.log("4. String to Array Number");
 var array_number_from_string=array_from_string.map(i=>Number(i));
 console.log(array_number_from_string);//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 0]
 
-/*Array Method .forEach()
+/*5. Array Method .forEach()
 The .forEach() method executes a callback function on each of the elements in an array in order.
 */
 
 var copyItems = [];
 var returnItems = [1,2,3].forEach(element=>copyItems.push(element/2));
-console.log('foreach()');
+console.log('5. foreach()');
 console.log(copyItems);//[0.5, 1, 1.5]
 console.log(returnItems);//undefined
 
-/* for */
+/*6. for */
 var array = [ 1, 2, 3, 4, 5, 6 ];
-console.log('for()');
+console.log('6. for()');
 for (index = 0; index < array.length; index++) {
     console.log(array[index]);
 }
 
-/**for of */
+/**7. for of */
 const iterable = [10, 20, 30];
-console.log('for of');
+console.log('7. for of');
 for (const value of iterable) {
   console.log(value);
 }
@@ -44,7 +44,7 @@ for (const value of iterable) {
 // 30
 
 
-/**Array to Map */
+/**8. Array to Map */
 const array3 = [
   {key: 'name', value: 'Tom'},
   {key: 'country', value: 'Chile'},
@@ -56,35 +56,35 @@ const map2 = new Map(
   }),
 );
 
-console.log("Array to Map");
+console.log("8. Array to Map");
 console.log(map2);
 
 
-/**Map to Array */
+/**9. Map to Array */
 const map4 = new Map();
 map4.set('name', 'John');
 map4.set('age', 30);
 
-console.log("Map to Array of values");
+console.log("9. Map to Array of values");
 const values = Array.from(map4.values());
 console.log(values); // 👉️ ['John', 30]
 console.log(values.length); // 👉️ 2
 
-console.log("Map to Array of keys");
+console.log("9. Map to Array of keys");
 const keys = Array.from(map4.keys()); // 👉️ ['name', 'age']
 console.log(keys);
 console.log(keys.length); 
 
 
-/**Array to Set */
-console.log("Array to Set");
+/**10. Array to Set */
+console.log("10. Array to Set");
 var array5 = [55, 44, 65];
 var set5 = new Set(array5);
 console.log(set5.size === array5.length);
 console.log(set5.has(65));
 
-/**Set to Array */
-console.log("Set to Array");
+/**11. Set to Array */
+console.log("11. Set to Array");
 var mySet5=new Set();
 mySet5.add(1);
 mySet5.add(2);
@@ -92,27 +92,28 @@ var myArr5 = [...mySet5];
 console.log(myArr5);
 
 
-/*Array Method .filter()
+/*12. Array Method .filter()
 The .filter() method executes a callback function on each element in an array. The callback function for each of the elements must return either true or false. The returned array is a new array with any elements for which the callback function returns true.
 */
 var new_array=[1,2,3].filter(element => element > 2);
-console.log("filter"); 
+console.log("12. filter"); 
 console.log(new_array);//[3]
 new_array=[1,2,3].filter(function(element){return element > 2 });
-console.log("filter"); 
+console.log("12. filter"); 
 console.log(new_array);//[3]
 
-/*filer*/
+/*12. filer*/
 var an_array=arr.filter(e=>e%2==0);
-console.log("filter"); 
+console.log("12. filter"); 
 console.log(an_array);//(6) [0, 2, 4, 6, 8, 10]
-/*sort*/
+
+/*13. sort*/
 an_array = arr.sort((a,b)=>b-a);
-console.log("sort"); 
+console.log("13. sort"); 
 console.log(an_array); //(11) [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
 
-/*Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity)*/
+/*14. Remove duplicate items from an array (ignore case sensitivity)*/
 a=[1,2,1,3,4,4,5]
 function remove_dupx(input_array){
   let new_arr=[];
@@ -126,17 +127,18 @@ function remove_dupx(input_array){
   }
   return new_arr;
 }
-console.log("remove duplicate items option1"); 
+console.log("14.1 remove duplicate items option1"); 
 console.log(remove_dupx(a)) //1 2 3 4 5
 
 //option2:
 const nums = [1, 2, 2, 3, 1, 2, 4, 5, 4, 2, 6];
 var set = [...new Set(nums)]
-console.log("remove duplicate items option2"); 
+console.log("14.2 remove duplicate items option2"); 
 console.log(set); //[1, 2, 3, 4, 5, 6]
 
 
-/*every() method checks if all elements in an array pass a test (provided as a function). */
+/*15. every() method checks if all elements in an array pass a test (provided as a function). */
+console.log('15. every()');
 index = 0;
 array = [ 1, 2, 3, 4, 5, 6 ];
  
@@ -149,14 +151,14 @@ else {
     console.log('At least one element is not less than 5');
 }
 
-console.log('every()');
+
 //At least one element is not less than 5.
 
 
 /*Get nth element of array**
 **Get last n elements of an array*/
 
-/*Array Method .reduce()**
+/*16. Array Method .reduce()**
 The .reduce() method iterates through an array and returns a single value.
 It takes a callback function with two parameters (accumulator, currentValue) as arguments. On each iteration, accumulator is the value returned by the last iteration, and the currentValue is the current element. Optionally, a second argument can be passed which acts as the initial value of the accumulator.
 */
@@ -169,28 +171,28 @@ const sumWithInitial = array1.reduce(
   initialValue
 );
 
-console.log('reduce()');
+console.log('16. reduce()');
 console.log(sumWithInitial); // expected output: 10
 
 
-/*Array Method .map()
+/*17. Array Method .map()
 The .map() method executes a callback function on each element in an array. It returns a new array made up of the return values from the callback function.
 The original array does not get altered, and the returned array may contain different elements than the original array.
 */
 
 copyItems = [];
 var return_array = [1,2,3].map(element => copyItems.push(element))
-console.log("map()");
+console.log("17. map()");
 console.log(copyItems);//[1, 2, 3]
 console.log(return_array);//[1, 2, 3]
 
-/*Array to string*/
+/*18. Array to string*/
 var me=''; 
 ['1','2','3'].forEach(element=>me=me+element); 
-console.log("array to string");
+console.log("18. array to string");
 console.log(me);//123
 
-//**Write a JavaScript program which accept a number as input and insert dashes (-) between each two even numbers. For example if you accept 025468 the output should be 0-254-6-8.**
+//**19. Accept a number as input and insert dashes (-) between each two even numbers. For example if you accept 025468 the output should be 0-254-6-8.**
 const number = 1025468;
 
 function insert_dashes(number){
@@ -200,17 +202,17 @@ function insert_dashes(number){
   return stringOfa;
 }
 // Log to console
-console.log("insert_dashes");
+console.log("19. insert_dashes");
 console.log(insert_dashes(number));
 console.log(insert_dashes(number).slice(1));//0-2-4-6-8
 
 
-/*There are two arrays with individual values, write a JavaScript program to compute the sum of each individual index value from the given arrays.*/
+/*20. There are two arrays with individual values, to compute the sum of each individual index value from the given arrays.*/
 //Sample array:
 var array1 = [1,0,2,3,4];
 var array2 = [3,5,6,7,8,13];
 //Expected Output:
-console.log("sum 2 individual values in 2 array"); 
+console.log("20. sum 2 individual values in 2 array"); 
 //[4, 5, 8, 10, 12, 13]
 
 function Arrays_sum(array1, array2) 
