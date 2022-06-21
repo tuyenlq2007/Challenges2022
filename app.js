@@ -1,20 +1,23 @@
 /*1. print all permute*/
 var per = [];
-function permute(str, l, r) {
-    if (l == r) {
-        per.push(str);
-        return;
-    }
+function getpermute(str, l, r){
+    var permu = [];
+    function permute(str, l, r) {
+        if (l == r) {
+            permu.push(str);
+            return;
+        }
 
-    for (let i = l; i < r; i++) {
-        let newstr = swap(str, l, i);
-        permute(newstr, l + 1, r);
+        for (let i = l; i < r; i++) {
+            let newstr = swap(str, l, i);
+            permute(newstr, l + 1, r);
+        }
     }
+    permute(str, l, r)
+    return permu;
 }
 
-
 function swap(a, i, j) {
-
     let temp;
     let charArray = a.split("");
     temp = charArray[i];
@@ -26,7 +29,7 @@ function swap(a, i, j) {
 function main() {
     let str = "ABC";
     let n = str.length;
-    permute(str, 0, n);
+    per=getpermute(str, 0, n);
     console.log("1. print all permute");
     console.log(per);
 }
@@ -34,3 +37,4 @@ function main() {
 if (require.main === module) {
     main();
 }
+//(6) ['ABC', 'ACB', 'BAC', 'BCA', 'CBA', 'CAB']

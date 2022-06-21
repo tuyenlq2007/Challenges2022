@@ -24,32 +24,20 @@ array_from_string = string.split('');
 var array_number_from_string = array_from_string.map(i => Number(i));
 console.log(array_number_from_string);//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 0]
 
-/*4. Accept a string as input and swap the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'*/
-/*option1*/
-console.log("4.1 accept a string as input and swap the case of each character. For example if you input (The Quick Brown Fox) the output should be (tHE qUICK bROWN fOX)");
-console.log('The Quick Brown Fox'.split("").map(e => e == e.toLowerCase() ? e.toUpperCase() : e.toLowerCase()).join(""))
-
-/*option2*/
-console.log("4.2 accept a string as input and swap the case of each character. For example if you input (The Quick Brown Fox) the output should be (tHE qUICK bROWN fOX)");
-var s = "abc Def";
-var a = s.split('');
-var results = a.map(c =>
-  c == c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()
-)
-console.log(results.join(''))
-
-
 /*5. Character access*/
 var c = 'cat'.charAt(1);
 console.log("5. access character at index")
 console.log(c);
 //c
 
-/*6. compare string*/
-function isEqual(str1, str2)
-{
-    return str1.toUpperCase() === str2.toUpperCase()
-} // isEqual
+/*6. String to Set*/
+var myString = "abc def"
+// converting between Set and Array
+const mySet2 = new Set(myString)
+mySet2.size                    // 7
+console.log("6. String to Set");
+console.log(mySet2) //Set(7) {size: 7, a, b, c,  , d, …}
+console.log("6. Set to Array");
+var myArray=[...mySet2];
+console.log(myArray)       // (7) ['a', 'b', 'c', ' ', 'd', 'e', 'f']
 
-console.log("6. compare string");
-console.log(isEqual(" ", " "));

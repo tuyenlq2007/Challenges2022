@@ -14,16 +14,17 @@ function generateSub(a) {
 
 /*1.2 Print all sub-strings of a string*/
 console.log("1.2 Print all sub-strings of a string");
-substrings = [];
-a = "abcd".split("")
-function generateSubString(a) {
-     for (let i = 0; i < a.length; i++) {
-          for (let j = i + 1; j < a.length + 1; j++) {
-               substrings.push(a.slice(i, j));
+function generateSubString(input_string) {
+    var arr = input_string.split("");
+    var substrings = [];
+     for (let i = 0; i < arr.length; i++) {
+          for (let j = i + 1; j < arr.length + 1; j++) {
+               substrings.push(arr.slice(i, j));
           }
      }
+     return substrings;
 }
-generateSubString(a);
+var substrings = generateSubString("abc");
 substrings.forEach(e => console.log(e));
 /*
 (1) ['a']
@@ -68,4 +69,78 @@ combine([1, 2, 3], 2).forEach(e=>console.log(e));
 (2) [1, 3]
 (2) [2, 3]
 (3) [1, 2, 3]
+*/
+
+
+
+/*3. Get all combinations of a string*/
+console.log("3. Get all combinations of a string")
+function getcombinationsofastring(the_input_str){
+    function getpermute(str, n){
+        var permu = [];
+        function permute(str, l, r) {
+            if (l == r) {
+                permu.push(str);
+                return;
+            }
+
+            for (let i = l; i < r; i++) {
+                let newstr = swap(str, l, i);
+                permute(newstr, l + 1, r);
+            }
+        }
+        permute(str, 0, n);
+        return permu;
+    }
+
+    function swap(a, i, j) {
+        let temp;
+        let charArray = a.split("");
+        temp = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+        return (charArray).join("");
+    }
+
+    function generateSubString(input_string) {
+        var arr = input_string.split("");
+        var substrings = [];
+         for (let i = 0; i < arr.length; i++) {
+              for (let j = i + 1; j < arr.length + 1; j++) {
+                   substrings.push(arr.slice(i, j).join(''));
+              }
+         }
+         return substrings;
+    }
+
+    var subsets=new Set();
+    var per = [];
+    let n = the_input_str.length;
+    per=getpermute(the_input_str, n);
+    per.forEach(e => {
+        var substrings = generateSubString(e);
+        substrings.forEach(f => subsets.add(f));
+    });
+    return subsets;
+}
+
+combin = getcombinationsofastring("abc");
+combin.forEach(e=>console.log(e));
+
+/*
+a
+ab
+abc
+b
+bc
+c
+ac
+acb
+cb
+ba
+bac
+bca
+ca
+cba
+cab
 */

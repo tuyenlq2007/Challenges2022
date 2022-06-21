@@ -113,30 +113,6 @@ console.log("13. sort");
 console.log(an_array); //(11) [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
 
-/*14. Remove duplicate items from an array (ignore case sensitivity)*/
-a=[1,2,1,3,4,4,5]
-function remove_dupx(input_array){
-  let new_arr=[];
-  b=a
-  for (let j=0; j<a.length; j++){
-    if (b.length>0){
-    c=b.shift();
-    new_arr.push(c);
-    b=b.filter(e=>e!=c);
-    }
-  }
-  return new_arr;
-}
-console.log("14.1 remove duplicate items option1"); 
-console.log(remove_dupx(a)) //1 2 3 4 5
-
-//option2:
-const nums = [1, 2, 2, 3, 1, 2, 4, 5, 4, 2, 6];
-var set = [...new Set(nums)]
-console.log("14.2 remove duplicate items option2"); 
-console.log(set); //[1, 2, 3, 4, 5, 6]
-
-
 /*15. every() method checks if all elements in an array pass a test (provided as a function). */
 console.log('15. every()');
 index = 0;
@@ -150,8 +126,6 @@ if (array.every(under_five)) {
 else {
     console.log('At least one element is not less than 5');
 }
-
-
 //At least one element is not less than 5.
 
 
@@ -192,42 +166,3 @@ var me='';
 console.log("18. array to string");
 console.log(me);//123
 
-//**19. Accept a number as input and insert dashes (-) between each two even numbers. For example if you accept 025468 the output should be 0-254-6-8.**
-const number = 1025468;
-
-function insert_dashes(number){
-  var arrayOfNumber = number.toString().split('');
-  var stringOfa='';
-  arrayOfNumber.forEach(num=>num%2===0 ? stringOfa=stringOfa+'-'+num : stringOfa );
-  return stringOfa;
-}
-// Log to console
-console.log("19. insert_dashes");
-console.log(insert_dashes(number));
-console.log(insert_dashes(number).slice(1));//0-2-4-6-8
-
-
-/*20. There are two arrays with individual values, to compute the sum of each individual index value from the given arrays.*/
-//Sample array:
-var array1 = [1,0,2,3,4];
-var array2 = [3,5,6,7,8,13];
-//Expected Output:
-console.log("20. sum 2 individual values in 2 array"); 
-//[4, 5, 8, 10, 12, 13]
-
-function Arrays_sum(array1, array2) 
-{
-  a2=array2
-  a1=array1
-  if (array2.length<array1.length){
-    a2=array1
-    a1=array2
-  }
-  return a2.map((num, index) => {
-    if (index<a1.length)
-    {return num+array1[index];}
-    else return num;
-});
-}
-
-console.log(Arrays_sum([1,0,2,3,4], [3,5,6,7,8,13])); //[4, 5, 8, 10, 12, 13]
