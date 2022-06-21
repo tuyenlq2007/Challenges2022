@@ -1,4 +1,5 @@
-/*using every to compare every element
+/*1. String paldrome
+using every to compare every element
 using string to array
 using reverse */
 arr1="aaa".split("")
@@ -23,10 +24,13 @@ function isPal(str,l,r){
     return isPal(str,l+1,r-1);
 }
 
+/*1.1 is string string paldrome*/
+console.log("1.1 print all string paldrome of (abbaergttgre")
+allPal = getPal("abbaergttgre");
+console.log(allPal);
 
-console.log(getPal("abbaergttgre"));
-
-//option2
+/*1.2 is string paldrome*/
+console.log("1.1 is string paldrome of (abcba)")
 a="abcba".split("")
 function isPal(a){
 for (let i=0;i<a.length/2;i++){

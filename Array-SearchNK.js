@@ -1,5 +1,6 @@
-More than n/k Occurences of element in array
+/*More than n/k Occurences of element in array
 “Given an array of N integers, and an integer K. Write a program to find all the elements in an array that appear more than n/k times.”
+*/
 
 //option2 use Map
 a=[1,2,3,3,6,7];
