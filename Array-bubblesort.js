@@ -1,3 +1,19 @@
+/*option 1*/
+var items = [1,8,7,2,46,4,5,25]
+function bubble_sort(items){
+    for (i=0; i< items.length; i++){
+        for (j=0;j< i;j++){
+            let item=items[i]
+            if (items[j]>item){
+                items[i]=items[j]
+                items[j]=item
+                item=item[i]
+            }
+        }
+    }
+    return items
+}
+console.log(bubble_sort(items))
 
 //option 2
 function bubblesort(B,lo,hi){
