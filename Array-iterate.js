@@ -34,3 +34,20 @@ a.shift()
 b=a.map((e,i)=>e.concat("("+i+")"))
 console.log(b.join("-"))
 
+
+/*iterate 2D array*/
+var items = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+console.log(items[0][0]); // 1
+console.log(items[0][1]); // 2
+console.log(items[1][0]); // 3
+console.log(items[1][1]); // 4
+console.log(items);
+/*iterate 2D array, print index of element*/
+items.forEach((e,index_i)=>{
+    let arr_e=Array.from(e)
+    arr_e.forEach((item,index_j)=>console.log(item,index_i,index_j))
+})
