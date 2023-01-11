@@ -179,14 +179,14 @@ burn(node, data)
 	// if data is less than node's data
 	// move left
 	else if(data < node.data){
+    this.burn( node.left, data);
     if (!this.burned.has(node.data)) this.queue.add(node.data)
-		return this.burn( node.left, data);
    }
 	// if data is more than node's data
 	// move right
 	else if(data > node.data){
+    this.burn(node.right, data);
 	  if (!this.burned.has(node.data)) this.queue.add(node.data)
-		return this.burn(node.right, data);
   }
 	// if data is equal to the node data
 	// return node
@@ -194,7 +194,6 @@ burn(node, data)
 	  this.burned.add(node.data)
 	  if (node.left !=null && !this.burned.has(node.left.data)) this.queue.add(node.left.data)
     if (node.right !=null && !this.burned.has(node.right.data)) this.queue.add(node.right.data)
-    return node;
 	}
 		
 }
