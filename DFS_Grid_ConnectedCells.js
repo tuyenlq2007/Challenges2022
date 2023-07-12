@@ -1,3 +1,4 @@
+
 //Binary search element in sorted array
 grid=[[1,1,0,0],[0,1,1,0],[0,0,1,0],[1,0,0,0]]
 
@@ -16,7 +17,7 @@ function largestRegion(grid) {
             for (col = 0; col < 4; col++) {
                 /* Find the largest region from the current cell */
                 if (grid[row][col] == 1) {
-                    let size  = findLargestRegion(grid, row, col);
+                    let size  = count_related_cell(grid, row, col);
                     if (size>maxRegion) maxRegion= size;
                 }
             }
@@ -45,12 +46,15 @@ function findLargestRegion(grid, row, col){
 }
 
 
-function count_related_cell1(grid, row, col){
- if (grid[row][col]==0) return 0;
+function count_related_cell(grid, row, col){
+ if (row < 0 || row >= 4 || col < 0 || col >= 4 || grid == null || grid[row][col] == 0) {
+            return 0;
+        }
+
  count = 1;
  grid[row][col]=0
- for (r=row-1; r<row+1; r++){
-     for (c=col-1; c<col+1; c++){
+ for (r=row-1; r<=row+1; r++){
+     for (c=col-1; c<=col+1; c++){
          count=count+count_related_cell(grid, r, c)
      }
   }
