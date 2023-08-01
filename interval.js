@@ -1,5 +1,24 @@
 //Write a code to merge overlapping intervals.
 
+function merge(ranges) {
+    var result = []
+    var last=ranges[0]
+
+    for (let i=1; i<ranges.length; i++)
+     {
+        r=ranges[i];
+        if (last[1]>=r[0])last[1]=r[1]
+        else {
+          result.push(last)
+          last=r
+        }
+    };
+    result.push(last)
+    return result;
+}
+
+r = [[10, 20], [19, 40], [40, 60], [70, 80],[80,100], [110, 112]];
+console.log(JSON.stringify(merge(r)));
 
 
 //Create an empty "result" array. Loop over the ranges array and either change the last item of the result or add the current range to it.
