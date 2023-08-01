@@ -1,6 +1,7 @@
 //Write a code to merge overlapping intervals.
 
 
+
 //Create an empty "result" array. Loop over the ranges array and either change the last item of the result or add the current range to it.
 
 function merge(ranges) {
@@ -17,7 +18,7 @@ function merge(ranges) {
 }
 
 r = [[10, 20], [19, 40], [40, 60], [70, 80]];
-console.log(JSON.stringify(merge(r)));
+//console.log(JSON.stringify(merge(r)));
 function mergeB(r){
 mergea=[]
 var i=0
@@ -29,14 +30,14 @@ while(i<r.length-1){
 if((tmp[1]>=r[i+1][0])&&(tmp[1]<r[i+1][1])){
 tmp[1]=r[i+1][1]
 r[i+1]=[0,0]
-point=i+2;
+point=i+1;
 }
 i++
 }
 mergea.push(tmp)
-if (tmp[1] >= r[r.length-1][1]) break;
+point++
 }
 return mergea
 }
-//console.log(JSON.stringify(mergeB(r)));
+console.log(JSON.stringify(mergeB(r)));
 
