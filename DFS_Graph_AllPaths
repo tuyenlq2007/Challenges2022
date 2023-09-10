@@ -1,0 +1,60 @@
+const airports = 'PHX BKK OKC JFK LAX MEX EZE HEL LOS LAP LIM'.split(' ');
+
+const routes = [
+    ['PHX', 'BKK'],
+    ['PHX', 'LAX'],
+    ['PHX', 'JFK'],
+    ['JFK', 'OKC'],
+    ['JFK', 'HEL'],
+    ['JFK', 'LOS'],
+    ['MEX', 'LAX'],
+    ['MEX', 'BKK'],
+    ['MEX', 'LIM'],
+    ['MEX', 'EZE'],
+    ['LIM', 'BKK'],
+];
+
+// The graph
+const adjacencyList = new Map();
+
+// Add node
+function addNode(airport) {
+    adjacencyList.set(airport, []);
+}
+
+// Add edge, undirected
+function addEdge(origin, destination) {
+    adjacencyList.get(origin).push(destination);
+    adjacencyList.get(destination).push(origin);
+}
+var allpaths=[]
+// Create the Graph
+airports.forEach(addNode);
+routes.forEach(route => addEdge(...route))
+function dfs(start, path = []) {
+    //console.log(start)
+    path.push(start);
+    if (start=='BKK') {
+      //console.log(path)
+      return [path]
+    }
+    
+    const destinations = adjacencyList.get(start);
+
+    paths = []
+    for (neighbor of destinations){
+        if (!path.includes(neighbor)) {
+            //console.log(neighbor)
+            new_paths = dfs(neighbor, [...path])
+            for (new_path of new_paths){
+               //console.log(new_path)
+               allpaths.push(new_path)
+            }
+        }
+    }
+    return paths
+
+}
+
+dfs('PHX',[])
+allpaths.forEach(e=>console.log(e))
