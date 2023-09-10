@@ -32,27 +32,20 @@ var allpaths=[]
 airports.forEach(addNode);
 routes.forEach(route => addEdge(...route))
 function dfs(start, path = []) {
-    //console.log(start)
     path.push(start);
     if (start=='BKK') {
-      //console.log(path)
-      return [path]
+      return path
     }
     
     const destinations = adjacencyList.get(start);
 
-    paths = []
-    for (neighbor of destinations){
-        if (!path.includes(neighbor)) {
-            //console.log(neighbor)
-            new_paths = dfs(neighbor, [...path])
-            for (new_path of new_paths){
-               //console.log(new_path)
-               allpaths.push(new_path)
-            }
+    for (destination of destinations){
+        if (!path.includes(destination)) {
+            new_path = dfs(destination, [...path])
+            allpaths.push(new_path)
         }
     }
-    return paths
+    return []
 
 }
 
