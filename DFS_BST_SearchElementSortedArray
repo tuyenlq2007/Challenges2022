@@ -1,0 +1,18 @@
+//BST-DFS Search position of element in sorted array
+A = [1,2,3,4,5,9,10,14,15]
+k=9
+count_k = find_number_element_smaller_than_k(k)
+n=A.length
+L = A[0]
+H = A[n-1]
+while (L<=H) {
+  m = Math.floor((L+H)/2)
+  if (m<count_k) {L = m+1}
+  else {H=m-1}
+}
+function find_number_element_smaller_than_k(k){
+  count = 0
+  A.forEach(e => {if (e<k) count++})
+  return count
+}
+console.log(L)
