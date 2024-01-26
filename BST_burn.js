@@ -153,6 +153,9 @@ insertNode(node, newNode)
 } 
 
 // Performs inorder traversal of a tree
+// Traverse the left subtree, i.e., call Inorder(left->subtree)
+// Visit the root.
+// Traverse the right subtree, i.e., call Inorder(right->subtree)
 inorder(node)
 { 
 
@@ -167,6 +170,19 @@ inorder(node)
         this.inorder(node.right); 
 
     }
+}
+
+// Performs preorder traversal of a tree
+//Visit the root.
+//Traverse the left subtree, i.e., call Preorder(left->subtree)
+//Traverse the right subtree, i.e., call Preorder(right->subtree) 
+preorder(node){
+
+ if (node !== null){
+    console.log(node.data); 
+    this.preorder(node.left)
+    this.preorder(node.right)
+ }
 }
 
 // search for a node with given data
@@ -198,6 +214,26 @@ burn(node, data)
 		
 }
 
+
+searchKthSmallet(node, k){
+if (node == null) return
+if (k==0) console.log(this.node.data)
+while (k>0){
+    if(node !== null) 
+
+    { 
+
+        this.searchKthSmallet(node.left); 
+
+        k--;
+
+        this.searchKthSmallet(node.right); 
+
+    }
+}
+
+}
+
 }
 
 // create an object for the BinarySearchTree
@@ -214,6 +250,8 @@ BST.insert(27);
 BST.insert(5);
 BST.insert(9);
 BST.insert(17);
+
+
                          
 //          15
 //         /  \
@@ -222,8 +260,13 @@ BST.insert(17);
 //      7  13 22  27
 //     / \    /
 //    5   9  17 
-
-
+console.log("====IN-ORDER====")
+BST.inorder(BST.getRootNode())
+console.log("====PRE-ORDER====")
+BST.preorder(BST.getRootNode())
+console.log("====SEARCH K-SMALLEST BST====")
+BST.searchKthSmallet(BST.getRootNode(), 3)
+console.log("====BURN NODES====")
 var root = BST.getRootNode(); 
 BST.burn(root,25)
 console.log("burn", BST.burned)
@@ -235,6 +278,7 @@ BST.burn(root, first)
 }
 console.log("burn", BST.burned)
 console.log("queue", BST.queue)
+
 
 
 
