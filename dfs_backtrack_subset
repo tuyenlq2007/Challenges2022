@@ -1,0 +1,12 @@
+word = '123'
+array_of_word = word.split('')
+my_subset = []
+function subset(my_array, index){
+    for (let i = index; i < my_array.length; i++){
+        my_subset.push(my_array[i])
+        subset(my_array, i+1)
+        console.log(my_subset)
+        my_subset.pop(my_array[i])
+    }
+}
+subset(array_of_word,0)
