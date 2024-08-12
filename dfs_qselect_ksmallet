@@ -1,0 +1,41 @@
+arr=[11,1,9,2,10,3,8,4,5,7]
+function partition(left, right){
+    pivot = right -1
+    arr_pivot = arr[pivot]
+    index = left
+    loc = left
+    right = pivot - 1
+    while(left <= right){
+        if (arr[left]> arr_pivot){
+            tmp= arr[right]
+            arr[right] = arr[left]
+            arr[left] = tmp
+            right --
+        }else left ++
+    }
+    tmp = arr[left]
+    arr[left] = arr_pivot
+    arr[pivot] = tmp
+    return left
+}
+
+function find_dfs(K, left, right){
+    pivot = partition(left, right)
+    console.log("pivot", pivot)
+    console.log("Step ")
+    arr.forEach(e=>{console.log(e)})
+    if (K==pivot){
+        console.log("found")
+        return pivot
+    }
+    if (K<pivot) pivot = find_dfs(K, 0, pivot)
+    if (K>pivot) pivot = find_dfs(K, pivot+1, right)
+    return pivot
+}
+
+found = find_dfs(7,0, arr.length)
+console.log("exit", found)
+console.log("Ksmallest is ", arr[found])
+console.log("Step 2")
+arr.forEach(e=>{console.log(e)})
+
